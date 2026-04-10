@@ -1,375 +1,356 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="zh-TW">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.2">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中正高中訪美領航員 Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        .radar-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+        .dashboard-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        .family-gradient { background: linear-gradient(135deg, #fef3c7 0%, #fff7ed 100%); }
+    </style>
 </head>
-<body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="zh-TW"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;中正高中訪美領航員 Dashboard&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://unpkg.com/lucide@latest"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&amp;display=swap');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: 'Noto Sans TC', sans-serif; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.radar-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.dashboard-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.family-gradient { background: linear-gradient(135deg, #fef3c7 0%, #fff7ed 100%); }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body class="bg-[#f8fafc] text-slate-900"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="app"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- 進度條 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="fixed top-0 left-0 w-full h-1 z-[100] bg-slate-200"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="progressBar" class="h-full bg-blue-600 transition-all duration-500" style="width: 0%"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- 導覽列 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="max-w-6xl mx-auto px-4 h-16 flex justify-between items-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="flex items-center gap-3"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-slate-900 p-2 rounded-xl text-white"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i data-lucide="layout-dashboard" class="w-5 h-5"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h1 class="font-black text-lg tracking-tight"&gt;訪美領航員 &lt;span class="text-blue-600"&gt;V2.3&lt;/span&gt;&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest"&gt;CCSH Exchange Program&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 桌面導航 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="dayNavDesktop" class="hidden lg:flex bg-slate-100 p-1 rounded-2xl gap-1 overflow-x-auto max-w-[60%]"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/nav&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;main class="max-w-6xl mx-auto px-4 py-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="contentArea"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 動態載入內容 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/main&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;footer class="mt-20 py-16 bg-white border-t border-slate-100 text-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex justify-center gap-4 mb-6 opacity-30"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;i data-lucide="school"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;i data-lucide="users"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;i data-lucide="heart"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400"&gt;Taipei Municipal Chung-Cheng Senior High School&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-[10px] mt-2 font-bold text-slate-300 italic"&gt;2026 Portland &amp; San Francisco Exchange&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const itineraryData = {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>0: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>title: "行前資訊儀表板",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>flights: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>{ id: "BR-008", route: "TPE ➔ SFO", time: "5/17 10:15 - 06:45", airline: "長榮航空" },</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>{ id: "AS-235", route: "SFO ➔ PDX", time: "5/22 11:56 - 13:50", airline: "阿拉斯加航空" },</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>{ id: "BR-025", route: "SEA ➔ TPE", time: "5/27 01:50 - 05:10(+1)", airline: "長榮航空" }</p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>baggage: "每人 2 件託運行李 (每件限 23kg) + 1 件手提行李 (7kg)",</p>
-<p class="p1"><span class="Apple-converted-space">                </span>weather: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>{ city: "舊金山", temp: "12°C - 19°C", note: "海邊風大，早晚溫差大" },</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>{ city: "波特蘭", temp: "10°C - 21°C", note: "氣候宜人，多雲偶雨" },</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>{ city: "西雅圖", temp: "9°C - 18°C", note: "多雨城市，建議備傘" }</p>
-<p class="p1"><span class="Apple-converted-space">                </span>],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>tsa: [</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"液體容器不得超過 100ml，需裝在透明夾鏈袋",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"筆電、平板及大型電子產品需單獨取出過藍",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"美國安檢需脫鞋、脫外套、解皮帶",</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>"嚴禁攜帶任何肉類製品及新鮮蔬果入境"</p>
-<p class="p1"><span class="Apple-converted-space">                </span>]</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>1: { assemble: "06:00 中正高中正門", date: "5/17 (日)", title: "啟程：向舊金山出發", location: "San Francisco, CA", coords: "37.7749° N, 122.4194° W", mainSpot: "Pier 39 Fisherman's Wharf", tips: "舊金山海邊風大，下機後請穿上薄外套。", schedule: [{ time: "06:00", activity: "中正高中集合", detail: "專車前往桃園機場 T2", duration: "1h" }, { time: "10:15", activity: "長榮航空 BR-008", detail: "飛行時間 11時30分", duration: "11.5h" }, { time: "06:45", activity: "抵達舊金山 (SFO)", detail: "Alex Wang 接機", duration: "1.5h" }], meals: { breakfast: { type: "HSArts 餐廳", place: "1950 Page St" }, lunch: { type: "HSArts 餐廳", place: "1950 Page St" }, dinner: { type: "漁人碼頭", place: "Fisherman's Wharf" } } },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>2: { assemble: "07:30 飯店大廳", date: "5/18 (一)", title: "正式交流：HSArts 藝術入班", location: "HSArts Campus", coords: "37.7694° N, 122.4862° W", mainSpot: "SF High School of the Arts", isFormal: true, tips: "今日需穿著正式服裝。晚上將與當地學生共製美式晚餐。", schedule: [{ time: "07:30", activity: "集合發車", detail: "前往 HSArts 藝術學院", duration: "0.5h" }, { time: "08:15", activity: "歡迎儀式 (正式服裝)", detail: "校長、師生共同參與", duration: "0.5h" }, { time: "08:45", activity: "入班學習", detail: "音樂、舞蹈、美術藝術交流", duration: "4h" }], meals: { breakfast: { type: "HSArts 餐廳", place: "HSArts" }, lunch: { type: "HSArts 餐廳", place: "HSArts" }, dinner: { type: "美式手作", place: "HSArts" } } },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>3: { assemble: "08:00 飯店大廳", date: "5/19 (二)", title: "科學探索與金門大橋慢跑", location: "Golden Gate Park", coords: "37.8077° N, 122.4750° W", mainSpot: "Golden Gate Bridge", tips: "下午將慢跑跨越金門大橋，請換上舒適的運動鞋。", schedule: [{ time: "08:00", activity: "集合發車", detail: "前往加州科學博物館", duration: "0.5h" }, { time: "09:00", activity: "科學博物館", detail: "探索水族館與雨林", duration: "3h" }, { time: "16:00", activity: "金門大橋慢跑", detail: "慢跑跨越世界地標", duration: "1.5h" }], meals: { breakfast: { type: "HSArts 餐廳", place: "HSArts" }, lunch: { type: "行程安排", place: "CAS Cafe" }, dinner: { type: "市區外用", place: "San Francisco" } } },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>4: { assemble: "08:00 飯店大廳", date: "5/20 (三)", title: "矽谷參訪：史丹佛與蘋果總部", location: "Stanford &amp; Cupertino", coords: "37.4275° N, 122.1697° W", mainSpot: "Stanford University", tips: "需穿著校服，並事先準備正式提問。", schedule: [{ time: "08:00", activity: "集合發車", detail: "前往南灣矽谷區域", duration: "1.5h" }, { time: "09:30", activity: "史丹佛大學", detail: "校園巡禮與資料提問", duration: "3h" }, { time: "14:00", activity: "Apple 總部參訪", detail: "Apple Park 科技體驗", duration: "2h" }], meals: { breakfast: { type: "HSArts 餐廳", place: "HSArts" }, lunch: { type: "巴西烤肉", place: "Fogo de Chão" }, dinner: { type: "學校/自理", place: "HSArts" } } },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>5: { assemble: "08:30 飯店大廳", date: "5/21 (四)", title: "SDGs 專題與金門公園 BBQ", location: "Golden Gate Park", coords: "37.7690° N, 122.4835° W", mainSpot: "Golden Gate Park", tips: "中午 BBQ 歡送會請準備小節目與美方交流。", schedule: [{ time: "08:30", activity: "集合發車", detail: "前往金門公園分組區", duration: "0.5h" }, { time: "12:00", activity: "歡送會 BBQ", detail: "與美方師生共進午餐", duration: "2.5h" }, { time: "15:00", activity: "天使島渡輪", detail: "欣賞舊金山海灣美景", duration: "3h" }], meals: { breakfast: { type: "HSArts 餐廳", place: "HSArts" }, lunch: { type: "BBQ 歡送會", place: "Golden Gate Park" }, dinner: { type: "海邊餐廳", place: "Angel Island Terminal" } } },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>6: { assemble: "08:30 飯店大廳", date: "5/22 (五)", title: "飛往波特蘭：Homestay 啟程", location: "Portland, Oregon", coords: "45.5152° N, 122.6784° W", mainSpot: "Cleveland High School", tips: "下午與寄宿家庭會合，正式開始 Homestay 生活。", schedule: [{ time: "08:30", activity: "集合發車", detail: "前往 SFO 國際機場", duration: "1h" }, { time: "11:56", activity: "飛往波特蘭 (AS235)", detail: "預計 13:50 抵達 PDX", duration: "2h" }, { time: "17:00", activity: "Cleveland HS", detail: "與 Host Family 集合領取行李", duration: "1h" }], meals: { breakfast: { type: "HSArts 提供", place: "HSArts" }, lunch: { type: "機場餐費", place: "SFO Airport" }, dinner: { type: "寄宿家庭", place: "Host Family" } } },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>7: { isFamilyDay: true, date: "5/23 (六)", title: "家庭時光：週末生活體驗", location: "Portland Local", tips: "週末是與家庭建立感情的最佳時機。主動幫忙做家事或參與家庭活動。", schedule: [{ time: "全天", activity: "Host Family 家庭日", detail: "隨寄宿家庭安排活動（如：市區觀光、戶外運動、社區探訪）", duration: "All Day" }], meals: { breakfast: { type: "家庭供應", place: "Host Family" }, lunch: { type: "家庭供應", place: "Host Family" }, dinner: { type: "家庭供應", place: "Host Family" } } },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>8: { isFamilyDay: true, date: "5/24 (日)", title: "家庭時光：文化探索日", location: "Portland Local", tips: "美國家庭週日常會有聚會或採購，嘗試體驗最道地的波特蘭生活。", schedule: [{ time: "全天", activity: "Host Family 家庭日", detail: "深度體驗美國家庭文化與在地生活", duration: "All Day" }], meals: { breakfast: { type: "家庭供應", place: "Host Family" }, lunch: { type: "家庭供應", place: "Host Family" }, dinner: { type: "家庭供應", place: "Host Family" } } },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>9: { isFamilyDay: true, date: "5/25 (一)", title: "國定假日：Memorial Day", location: "Portland Local", tips: "今天是美國陣亡將士紀念日，全國放假一天。與家庭享受長假最後一天。", schedule: [{ time: "全天", activity: "Memorial Day 假期", detail: "適逢美國國定假日，學校放假，隨寄宿家庭活動", duration: "All Day" }], meals: { breakfast: { type: "家庭供應", place: "Host Family" }, lunch: { type: "家庭供應", place: "Host Family" }, dinner: { type: "家庭供應", place: "Host Family" } } },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>10: { assemble: "07:45 寄宿家庭送行", date: "5/26 (二)", title: "波特蘭歡送與返程準備", location: "Portland to Seattle", coords: "45.4985° N, 122.6732° W", mainSpot: "The Old Spaghetti Factory", isFormal: true, tips: "今日需穿正式服裝。晚餐後前往西雅圖機場。", schedule: [{ time: "08:30", activity: "正式入班", detail: "課程交流與結業儀式", duration: "6h" }, { time: "17:00", activity: "歡送晚宴", detail: "老義大利麵工廠 (Old Spaghetti Factory)", duration: "2h" }, { time: "19:00", activity: "前往西雅圖", detail: "專車前往 SEA 機場", duration: "3h" }], meals: { breakfast: { type: "寄宿家庭", place: "Host Family" }, lunch: { type: "學校餐廳", place: "Cleveland HS" }, dinner: { type: "義式晚宴", place: "OSF Portland" } } },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>11: { assemble: "22:00 (5/26) 機場報到", date: "5/27 (三)", title: "告別美國：跨越換日線", location: "SEA Airport", coords: "47.4502° N, 122.3088° W", mainSpot: "Seattle Airport", tips: "凌晨起飛，在機上充分休息，預計 5/28 清晨抵台。", schedule: [{ time: "01:50", activity: "長榮航空 BR-025", detail: "西雅圖起飛返台", duration: "12.5h" }, { time: "05:10", activity: "抵達桃園 (5/28)", detail: "搭乘專車返回中正高中", duration: "2h" }], meals: { breakfast: { type: "機上用餐", place: "EVA Air" }, lunch: { type: "機上用餐", place: "EVA Air" }, dinner: { type: "自理", place: "Home" } } }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>const days = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];</p>
-<p class="p1"><span class="Apple-converted-space">        </span>let currentDay = 0;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function render() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const content = document.getElementById('contentArea');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const data = itineraryData[currentDay];</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const progress = (days.indexOf(currentDay) / (days.length - 1)) * 100;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('progressBar').style.width = progress + '%';</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const nav = document.getElementById('dayNavDesktop');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>nav.innerHTML = days.map(d =&gt; `</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;button onclick="changeDay(${d})" class="px-3 py-1.5 rounded-xl text-[10px] font-black transition-all shrink-0 ${currentDay === d ? 'bg-white text-blue-600 shadow-sm scale-110' : 'text-slate-500 hover:bg-white/50'}"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>${d === 0 ? 'HOME' : 'D' + d}</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>`).join('');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (currentDay === 0) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>renderDashboard(content, data);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else if (itineraryData[currentDay].isFamilyDay) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>renderFamilyDay(content, data);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>renderDay(content, data);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>lucide.createIcons();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function renderDashboard(el, data) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>el.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="space-y-8 animate-in fade-in duration-700"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="dashboard-gradient rounded-[3rem] p-10 text-white shadow-2xl relative overflow-hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="absolute top-0 right-0 p-10 opacity-10"&gt;&lt;i data-lucide="plane" class="w-64 h-64 rotate-45"&gt;&lt;/i&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="relative z-10"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="bg-blue-500 text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest"&gt;Dashboard 首頁&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h2 class="text-5xl font-black mt-4 tracking-tighter italic"&gt;中正領航員儀表板&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-slate-400 mt-2 font-bold tracking-[0.3em] uppercase"&gt;Portland &amp; San Francisco 2026&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex items-center gap-3 mb-6"&gt;&lt;i data-lucide="plane-takeoff" class="text-blue-600"&gt;&lt;/i&gt;&lt;h3 class="text-xl font-black"&gt;航班起降資訊&lt;/h3&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="space-y-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>${data.flights.map(f =&gt; `</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="flex justify-between items-center p-4 bg-slate-50 rounded-2xl border border-slate-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;p class="text-[10px] font-black text-blue-600"&gt;${f.airline}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;h4 class="font-black text-slate-800"&gt;${f.id}&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;p class="text-[10px] text-slate-400 font-bold"&gt;${f.route}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;div class="text-right text-xs font-black text-slate-600"&gt;${f.time}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>`).join('')}</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex items-center gap-3 mb-6"&gt;&lt;i data-lucide="briefcase" class="text-orange-600"&gt;&lt;/i&gt;&lt;h3 class="text-xl font-black"&gt;行李攜帶規定&lt;/h3&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-orange-50 p-6 rounded-3xl border border-orange-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-orange-900 font-black leading-relaxed"&gt;${data.baggage}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="mt-4 flex items-center gap-2 text-xs text-orange-600 font-bold"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;i data-lucide="alert-triangle" class="w-4 h-4"&gt;&lt;/i&gt; 嚴格限重，建議預留空間放紀念品</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex items-center gap-3 mb-6"&gt;&lt;i data-lucide="cloud-sun" class="text-sky-500"&gt;&lt;/i&gt;&lt;h3 class="text-xl font-black"&gt;5月城市氣溫&lt;/h3&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="grid grid-cols-3 gap-3"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>${data.weather.map(w =&gt; `</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="bg-slate-50 p-4 rounded-2xl text-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;p class="text-[10px] font-black text-slate-400 mb-1"&gt;${w.city}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;p class="text-lg font-black text-slate-800"&gt;${w.temp}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;p class="text-[8px] text-slate-400 mt-1 leading-tight"&gt;${w.note}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>`).join('')}</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex items-center gap-3 mb-6"&gt;&lt;i data-lucide="shield-alert" class="text-red-600"&gt;&lt;/i&gt;&lt;h3 class="text-xl font-black"&gt;TSA 安檢重點&lt;/h3&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;ul class="space-y-3"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>${data.tsa.map(t =&gt; `&lt;li class="flex gap-3 text-sm font-bold text-slate-600"&gt;&lt;i data-lucide="check-circle" class="w-4 h-4 text-red-500 shrink-0"&gt;&lt;/i&gt;${t}&lt;/li&gt;`).join('')}</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function renderFamilyDay(el, data) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>el.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="animate-in slide-in-from-bottom-4 duration-500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="family-gradient rounded-[3rem] p-10 border border-amber-100 shadow-xl overflow-hidden relative"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="absolute top-0 right-0 p-10 opacity-10"&gt;&lt;i data-lucide="home" class="w-64 h-64"&gt;&lt;/i&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="relative z-10"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex items-center gap-3 mb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="bg-amber-500 text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest"&gt;Host Family Day&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="bg-white/80 text-amber-800 text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest"&gt;Day ${currentDay}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h2 class="text-5xl font-black text-amber-900 tracking-tighter mb-4"&gt;${data.title}&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="flex gap-6 text-amber-700/70 text-sm font-bold"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="flex items-center gap-2"&gt;&lt;i data-lucide="calendar"&gt;&lt;/i&gt;${data.date}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;span class="flex items-center gap-2"&gt;&lt;i data-lucide="map-pin"&gt;&lt;/i&gt;${data.location}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="lg:col-span-7 space-y-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-white rounded-[2.5rem] p-10 shadow-sm border border-slate-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="flex items-center gap-3 mb-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="w-1.5 h-8 bg-amber-500 rounded-full"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;h3 class="text-2xl font-black italic text-slate-800"&gt;今日重點安排&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="space-y-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>${data.schedule.map(item =&gt; `</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;div class="flex gap-6 items-start"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;div class="bg-amber-100 p-3 rounded-2xl text-amber-600"&gt;&lt;i data-lucide="heart"&gt;&lt;/i&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                                </span>&lt;h4 class="text-xl font-black text-slate-800"&gt;${item.activity}&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                                </span>&lt;p class="text-slate-500 font-bold mt-2 leading-relaxed"&gt;${item.detail}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>`).join('')}</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-white rounded-[2.5rem] p-10 shadow-sm border border-slate-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="flex items-center gap-3 mb-6"&gt;&lt;i data-lucide="utensils" class="text-amber-500"&gt;&lt;/i&gt;&lt;h3 class="text-xl font-black italic"&gt;飲食安排&lt;/h3&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center font-black"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="bg-slate-50 p-4 rounded-2xl"&gt;&lt;p class="text-[10px] text-slate-400"&gt;早&lt;/p&gt;${data.meals.breakfast.type}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="bg-slate-50 p-4 rounded-2xl"&gt;&lt;p class="text-[10px] text-slate-400"&gt;午&lt;/p&gt;${data.meals.lunch.type}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="bg-slate-50 p-4 rounded-2xl"&gt;&lt;p class="text-[10px] text-slate-400"&gt;晚&lt;/p&gt;${data.meals.dinner.type}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="lg:col-span-5"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-amber-900 text-amber-50 rounded-[2.5rem] p-10 shadow-xl sticky top-24"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="text-2xl font-black mb-6 flex items-center gap-3 italic"&gt;&lt;i data-lucide="sparkles" class="text-amber-400"&gt;&lt;/i&gt; 家庭交流小撇步&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;ul class="space-y-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;li class="flex gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;div class="w-6 h-6 rounded-full bg-amber-800 flex items-center justify-center shrink-0 font-black text-xs"&gt;1&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;p class="text-sm font-bold opacity-80 leading-relaxed"&gt;主動詢問：問候 "Good Morning" 或 "How can I help with dinner?" 是開啟談話的好方法。&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;li class="flex gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;div class="w-6 h-6 rounded-full bg-amber-800 flex items-center justify-center shrink-0 font-black text-xs"&gt;2&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;p class="text-sm font-bold opacity-80 leading-relaxed"&gt;分享文化：可以介紹台灣的美食照片或小禮物，外國家庭通常對這些很感興趣。&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;li class="flex gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;div class="w-6 h-6 rounded-full bg-amber-800 flex items-center justify-center shrink-0 font-black text-xs"&gt;3&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;p class="text-sm font-bold opacity-80 leading-relaxed"&gt;遵守規定：注意淋浴時間與門禁要求，保持個人空間整潔是基本禮儀。&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="mt-10 p-6 bg-amber-800/50 rounded-3xl border border-amber-700"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;p class="text-xs font-black italic leading-relaxed text-amber-200"&gt;「最好的交流不是語言，而是你參與家庭生活的態度。」&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function renderDay(el, data) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>el.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="grid grid-cols-1 lg:grid-cols-12 gap-8 animate-in slide-in-from-bottom-4 duration-500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="lg:col-span-8 space-y-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-white rounded-[2.5rem] shadow-2xl border border-slate-100 overflow-hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-slate-900 text-white p-10 relative overflow-hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="absolute top-0 right-0 p-10 opacity-10"&gt;&lt;i data-lucide="globe" class="w-48 h-48"&gt;&lt;/i&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="relative z-10"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="flex items-center gap-3 mb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;span class="bg-blue-600 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest"&gt;Day ${currentDay}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>${data.isFormal ? '&lt;span class="bg-red-500 text-[10px] font-black px-3 py-1 rounded-full uppercase animate-pulse"&gt;Formal Wear&lt;/span&gt;' : ''}</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;h2 class="text-4xl font-black tracking-tighter mb-4 italic"&gt;${data.title}&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="flex gap-6 text-slate-300 text-xs font-black uppercase tracking-widest"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;span class="flex items-center gap-2"&gt;&lt;i data-lucide="calendar" class="w-4 h-4 text-blue-400"&gt;&lt;/i&gt;${data.date}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;span class="flex items-center gap-2"&gt;&lt;i data-lucide="map-pin" class="w-4 h-4 text-blue-400"&gt;&lt;/i&gt;${data.location}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                            </span></p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="p-10"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="flex items-center gap-4 mb-10 p-6 bg-blue-50 rounded-3xl border border-blue-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="bg-blue-600 p-3 rounded-2xl text-white shadow-lg shadow-blue-200"&gt;&lt;i data-lucide="bell" class="w-5 h-5"&gt;&lt;/i&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;p class="text-[10px] font-black text-blue-400 uppercase tracking-[0.2em]"&gt;Morning Gathering&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;p class="text-xl font-black text-slate-800"&gt;${data.assemble}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="space-y-2 relative"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>${data.schedule.map(item =&gt; `</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;div class="group flex gap-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;div class="w-16 shrink-0 text-sm font-black text-slate-300 pt-5 font-mono"&gt;${item.time}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;div class="relative flex-grow pb-10 border-b border-slate-50 pt-5"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                                </span>&lt;div class="absolute -left-[41px] top-[26px] w-2.5 h-2.5 bg-slate-200 border-2 border-white rounded-full z-10 transition-colors group-hover:bg-blue-600"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                                </span>&lt;div class="absolute -left-[37px] top-0 w-[2px] h-full bg-slate-50"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                                </span>&lt;div class="flex justify-between items-start gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                                    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                                        </span>&lt;h4 class="text-lg font-black text-slate-800 leading-tight"&gt;${item.activity}&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                                        </span>&lt;p class="text-sm text-slate-400 font-bold mt-2"&gt;${item.detail}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                                    </span>&lt;span class="text-[10px] font-black text-slate-400 bg-slate-100 px-3 py-1 rounded-lg shrink-0"&gt;${item.duration}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>`).join('')}</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="mt-16"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;h4 class="text-lg font-black text-slate-800 mb-6 italic"&gt;Dining &amp; Logistics&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="grid grid-cols-1 md:grid-cols-3 gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>${Object.entries(data.meals).map(([type, m]) =&gt; `</p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;div class="bg-slate-50 p-6 rounded-[2rem] border border-slate-100 hover:bg-slate-100 transition-colors cursor-pointer" onclick="openMap('${m.place}')"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                                </span>&lt;div class="flex justify-between items-center mb-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                                    </span>&lt;p class="text-[10px] font-black text-slate-400 uppercase tracking-widest"&gt;${type}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                                    </span>&lt;i data-lucide="map" class="w-3 h-3 text-blue-400"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                                </span>&lt;h5 class="font-black text-slate-800 leading-tight"&gt;${m.type}&lt;/h5&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                                </span>&lt;p class="text-[10px] text-blue-500 mt-2 font-black uppercase overflow-hidden text-ellipsis whitespace-nowrap"&gt;${m.place}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>`).join('')}</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="lg:col-span-4 space-y-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-white rounded-[2.5rem] p-8 shadow-xl border border-slate-100 sticky top-24 text-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="aspect-[4/5] bg-slate-900 rounded-[2rem] relative overflow-hidden flex flex-col items-center justify-center cursor-pointer mb-6 group" onclick="openMap('${data.mainSpot}')"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="absolute inset-0 opacity-10 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:20px_20px]"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="bg-blue-600 text-[10px] font-black px-4 py-1.5 rounded-full text-white radar-pulse mb-6 shadow-lg shadow-blue-500/50"&gt;Location Tracker&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="text-2xl font-black text-white px-6 leading-tight group-hover:scale-105 transition-transform"&gt;${data.mainSpot}&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-blue-400 text-[10px] mt-6 font-black flex items-center gap-2 uppercase tracking-widest"&gt;&lt;i data-lucide="navigation" class="w-3 h-3"&gt;&lt;/i&gt; Get Directions&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="bg-amber-50 p-8 rounded-[2rem] border border-amber-100 text-left"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h5 class="text-amber-800 font-black text-sm flex items-center gap-2 mb-3 uppercase tracking-tighter"&gt;&lt;i data-lucide="lightbulb" class="w-4 h-4"&gt;&lt;/i&gt;Navigator's Tip&lt;/h5&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-sm text-amber-900/70 font-bold leading-relaxed"&gt;${data.tips}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function openMap(q) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>window.open(`https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(q)}`, '_blank');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function changeDay(d) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>currentDay = d;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>render();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>window.scrollTo({ top: 0, behavior: 'smooth' });</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>window.onload = render;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<body class="bg-[#f8fafc] text-slate-900">
+
+    <div id="app">
+        <!-- 進度條 -->
+        <div class="fixed top-0 left-0 w-full h-1 z-[100] bg-slate-200">
+            <div id="progressBar" class="h-full bg-blue-600 transition-all duration-500" style="width: 0%"></div>
+        </div>
+
+        <!-- 導覽列 -->
+        <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm">
+            <div class="max-w-6xl mx-auto px-4 h-16 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-slate-900 p-2 rounded-xl text-white">
+                        <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-black text-lg tracking-tight">訪美領航員 <span class="text-blue-600">V3.0</span></h1>
+                        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">CCSH Exchange Program 2026</p>
+                    </div>
+                </div>
+                <!-- 桌面導航 -->
+                <div id="dayNavDesktop" class="hidden lg:flex bg-slate-100 p-1 rounded-2xl gap-1 overflow-x-auto max-w-[60%]"></div>
+            </div>
+        </nav>
+
+        <main class="max-w-6xl mx-auto px-4 py-8">
+            <div id="contentArea">
+                <!-- 動態載入內容 -->
+            </div>
+        </main>
+
+        <footer class="mt-20 py-16 bg-white border-t border-slate-100 text-center">
+            <div class="flex justify-center gap-4 mb-6 opacity-30">
+                <i data-lucide="school"></i>
+                <i data-lucide="users"></i>
+                <i data-lucide="heart"></i>
+            </div>
+            <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Taipei Municipal Chung-Cheng Senior High School</p>
+            <p class="text-[10px] mt-2 font-bold text-slate-300 italic">Official Itinerary - Updated April 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        const itineraryData = {
+            0: {
+                title: "行前資訊儀表板",
+                flights: [
+                    { id: "BR-008", route: "TPE ➔ SFO", time: "5/17 10:15 - 06:45", airline: "長榮航空" },
+                    { id: "AS-235", route: "SFO ➔ PDX", time: "5/22 11:56 - 13:50", airline: "阿拉斯加航空" },
+                    { id: "BR-025", route: "SEA ➔ TPE", time: "5/27 01:50 - 05:10(+1)", airline: "長榮航空" }
+                ],
+                baggage: "每人 2 件託運行李 (每件限 23kg) + 1 件手提行李 (7kg)",
+                weather: [
+                    { city: "舊金山", temp: "12°C - 19°C", note: "海邊風大，早晚溫差大" },
+                    { city: "波特蘭", temp: "10°C - 21°C", note: "氣候宜人，多雲偶雨" },
+                    { city: "西雅圖", temp: "9°C - 18°C", note: "多雨城市，建議備傘" }
+                ],
+                tsa: [
+                    "液體容器不得超過 100ml，需裝在透明夾鏈袋",
+                    "筆電、平板及大型電子產品需單獨取出過藍",
+                    "美國安檢需脫鞋、脫外套、解皮帶",
+                    "嚴禁攜帶任何肉類製品及新鮮蔬果入境"
+                ]
+            },
+            1: { assemble: "06:00 中正高中正門", date: "5/17 (日)", title: "抵達舊金山：浪漫霧都", location: "FOUND Hotel, SF", coords: "37.7842° N, 122.4139° W", mainSpot: "Fisherman's Wharf", tips: "舊金山海邊風大，下機後請穿上薄外套。入住 FOUND Hotel，一人一床。", schedule: [{ time: "06:00", activity: "中正高中集合", detail: "專車前往桃園機場 T2", duration: "1h" }, { time: "10:15", activity: "長榮航空 BR-008", detail: "飛行時間 11時30分", duration: "11.5h" }, { time: "06:45", activity: "抵達舊金山 (SFO)", detail: "Alex Wang 接機 (07:30 集合)", duration: "1.5h" }, { time: "10:00", activity: "HSArts 校園巡禮", detail: "熟悉環境並享用早餐", duration: "2h" }, { time: "14:00", activity: "市區參訪", detail: "有線電車、漁人碼頭、PIER 39 欣賞海獅", duration: "4h" }], meals: { breakfast: { type: "HSArts 餐廳", place: "1950 Page St" }, lunch: { type: "HSArts 餐廳", place: "1950 Page St" }, dinner: { type: "漁人碼頭自理", place: "Fisherman's Wharf" } } },
+            2: { assemble: "07:10 校車接送", date: "5/18 (一)", title: "正式交流：藝術入班", location: "HSArts Campus", coords: "37.7694° N, 122.4862° W", mainSpot: "HSArts 藝術學院", isFormal: true, tips: "今日需穿著正式服裝。8:15 歡迎儀式，晚上與當地學生共製美式晚餐。", schedule: [{ time: "07:10", activity: "飯店集合", detail: "HSArts 校車接送", duration: "0.5h" }, { time: "08:15", activity: "歡迎儀式 (正式服裝)", detail: "正式迎賓與 VIP 參與", duration: "0.5h" }, { time: "08:45", activity: "入班學習", detail: "音樂、舞蹈、美術藝術交流", duration: "4h" }, { time: "18:00", activity: "美式晚餐製作", detail: "與當地學生共同下廚", duration: "2h" }], meals: { breakfast: { type: "HSArts 餐廳", place: "HSArts" }, lunch: { type: "HSArts 餐廳", place: "HSArts" }, dinner: { type: "美式手作", place: "HSArts" } } },
+            3: { assemble: "07:10 校車接送", date: "5/19 (二)", title: "科學與永續：加州科學博物館", location: "Golden Gate Park", coords: "37.8077° N, 122.4750° W", mainSpot: "California Academy of Sciences", tips: "請預先研究珊瑚礁復育。下午將慢跑跨越金門大橋。", schedule: [{ time: "09:00", activity: "加州科學博物館", detail: "探索水族館與珊瑚礁保護展覽", duration: "3h" }, { time: "14:00", activity: "Legion of Honor", detail: "參訪榮耀宮美術館", duration: "2h" }, { time: "16:00", activity: "金門大橋慢跑", detail: "慢跑跨越世界地標", duration: "1.5h" }], meals: { breakfast: { type: "HSArts 餐廳", place: "HSArts" }, lunch: { type: "行程中用餐", place: "CAS Cafe" }, dinner: { type: "行程中用餐", place: "San Francisco" } } },
+            4: { assemble: "07:10 校車接送", date: "5/20 (三)", title: "矽谷參訪：史丹佛與 Apple", location: "Stanford & Cupertino", coords: "37.4275° N, 122.1697° W", mainSpot: "Stanford University", tips: "需穿著校服，請事先準備正式提問。午餐品嚐特色巴西烤肉。", schedule: [{ time: "09:30", activity: "史丹佛大學", detail: "校園巡禮與學術交流", duration: "3h" }, { time: "14:00", activity: "Apple 總部參訪", detail: "Apple Park 科技體驗", duration: "2h" }], meals: { breakfast: { type: "HSArts 餐廳", place: "HSArts" }, lunch: { type: "巴西烤肉", place: "Fogo de Chão" }, dinner: { type: "依行程安排", place: "HSArts" } } },
+            5: { assemble: "07:10 校車接送", date: "5/21 (四)", title: "SDGs 交流與金門公園 BBQ", location: "Golden Gate Park", coords: "37.7690° N, 122.4835° W", mainSpot: "Angel Island", tips: "探討「惜物惜福」精神。中午 BBQ 歡送會請準備小節目與美方交流。", schedule: [{ time: "09:00", activity: "SDGs 專題討論", detail: "海洋塑料與傳統零廢棄文化討論", duration: "2h" }, { time: "12:00", activity: "歡送會 BBQ", detail: "金門公園與美方師生交流", duration: "2.5h" }, { time: "15:00", activity: "天使島渡輪", detail: "欣賞舊金山海灣美景", duration: "3h" }], meals: { breakfast: { type: "HSArts 餐廳", place: "HSArts" }, lunch: { type: "BBQ 歡送會", place: "Golden Gate Park" }, dinner: { type: "海邊餐廳", place: "Angel Island Terminal" } } },
+            6: { assemble: "上午打包行李", date: "5/22 (五)", title: "波特蘭：Homestay 生活展開", location: "Portland, Oregon", coords: "45.5152° N, 122.6784° W", mainSpot: "Cleveland High School", tips: "下午 15:40 抵達克里夫蘭高中。教師入住 River's Edge Hotel。", schedule: [{ time: "11:56", activity: "飛往波特蘭 (AS235)", detail: "飛行時間 1小時54分", duration: "2h" }, { time: "14:30", activity: "市區觀光", detail: "花鐘廣場、華盛頓公園", duration: "1h" }, { time: "15:40", activity: "Cleveland HS", detail: "抵達學校與 Host Family 會合", duration: "1h" }], meals: { breakfast: { type: "HSArts 提供", place: "HSArts" }, lunch: { type: "機場餐費", place: "SFO Airport" }, dinner: { type: "寄宿家庭", place: "Host Family" } } },
+            7: { isFamilyDay: true, date: "5/23 (六)", title: "家庭時光：週末生活體驗", location: "Portland Local", tips: "週末是與家庭建立感情的最佳時機。主動幫忙做家事或參與家庭活動。", schedule: [{ time: "全天", activity: "Host Family 家庭日", detail: "隨寄宿家庭安排活動（如：市區觀光、戶外運動）", duration: "All Day" }], meals: { breakfast: { type: "家庭供應", place: "Host Family" }, lunch: { type: "家庭供應", place: "Host Family" }, dinner: { type: "家庭供應", place: "Host Family" } } },
+            8: { isFamilyDay: true, date: "5/24 (日)", title: "家庭時光：文化探索日", location: "Portland Local", tips: "體驗道地的波特蘭生活，多與 Host Parents 聊天分享台灣文化。", schedule: [{ time: "全天", activity: "Host Family 家庭日", detail: "深度體驗美國在地生活文化", duration: "All Day" }], meals: { breakfast: { type: "家庭供應", place: "Host Family" }, lunch: { type: "家庭供應", place: "Host Family" }, dinner: { type: "家庭供應", place: "Host Family" } } },
+            9: { isFamilyDay: true, date: "5/25 (一)", title: "國定假日：Memorial Day", location: "Portland Local", tips: "今天是美國陣亡將士紀念日，學校放假。與家庭享受長假最後一天。", schedule: [{ time: "全天", activity: "Memorial Day 假期", detail: "美國國定假日，隨寄宿家庭活動", duration: "All Day" }], meals: { breakfast: { type: "家庭供應", place: "Host Family" }, lunch: { type: "家庭供應", place: "Host Family" }, dinner: { type: "家庭供應", place: "Host Family" } } },
+            10: { assemble: "08:30 入班上課", date: "5/26 (二)", title: "結業儀式與告別波特蘭", location: "Portland to Seattle", coords: "45.4985° N, 122.6732° W", mainSpot: "The Old Spaghetti Factory", isFormal: true, tips: "穿著正式服裝。下午 16:00 騎腳踏車。晚餐後前往西雅圖機場。", schedule: [{ time: "08:30", activity: "正式入班", detail: "課程交流與特色課程 (14:00)", duration: "7h" }, { time: "16:00", activity: "腳踏車時間", detail: "校園周邊單車悠遊", duration: "1h" }, { time: "17:00", activity: "歡送晚宴 (OSF)", detail: "老義大利麵工廠創始店晚餐", duration: "2h" }, { time: "19:00", activity: "前往西雅圖", detail: "專車前往 SEA 機場", duration: "3h" }], meals: { breakfast: { type: "寄宿家庭", place: "Host Family" }, lunch: { type: "學校餐廳", place: "Cleveland HS" }, dinner: { type: "義式晚宴", place: "OSF Portland" } } },
+            11: { assemble: "22:00 (5/26) 機場報到", date: "5/27 (三)", title: "跨越換日線：返家之路", location: "SEA Airport", coords: "47.4502° N, 122.3088° W", mainSpot: "機上休息", tips: "預計 5/28 05:10 抵台，07:20 返抵中正高中。當日全日公假。", schedule: [{ time: "01:50", activity: "長榮航空 BR-025", detail: "西雅圖起飛返台", duration: "12.5h" }, { time: "05:10", activity: "抵達桃園 (5/28)", detail: "清關並領取行李", duration: "1.5h" }, { time: "07:20", activity: "返抵中正高中", detail: "平安回校，家長接送", duration: "1h" }], meals: { breakfast: { type: "機上用餐", place: "EVA Air" }, lunch: { type: "機上用餐", place: "EVA Air" }, dinner: { type: "自理", place: "Home" } } }
+        };
+
+        const days = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+        let currentDay = 0;
+
+        function render() {
+            const content = document.getElementById('contentArea');
+            const data = itineraryData[currentDay];
+            
+            const progress = (days.indexOf(currentDay) / (days.length - 1)) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+
+            const nav = document.getElementById('dayNavDesktop');
+            nav.innerHTML = days.map(d => `
+                <button onclick="changeDay(${d})" class="px-3 py-1.5 rounded-xl text-[10px] font-black transition-all shrink-0 ${currentDay === d ? 'bg-white text-blue-600 shadow-sm scale-110' : 'text-slate-500 hover:bg-white/50'}">
+                    ${d === 0 ? 'HOME' : 'D' + d}
+                </button>
+            `).join('');
+
+            if (currentDay === 0) {
+                renderDashboard(content, data);
+            } else if (itineraryData[currentDay].isFamilyDay) {
+                renderFamilyDay(content, data);
+            } else {
+                renderDay(content, data);
+            }
+            
+            lucide.createIcons();
+        }
+
+        function renderDashboard(el, data) {
+            el.innerHTML = `
+                <div class="space-y-8 animate-in fade-in duration-700">
+                    <div class="dashboard-gradient rounded-[3rem] p-10 text-white shadow-2xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-10 opacity-10"><i data-lucide="plane" class="w-64 h-64 rotate-45"></i></div>
+                        <div class="relative z-10">
+                            <span class="bg-blue-500 text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest">Dashboard 首頁</span>
+                            <h2 class="text-5xl font-black mt-4 tracking-tighter italic">中正領航員儀表板</h2>
+                            <p class="text-slate-400 mt-2 font-bold tracking-[0.3em] uppercase">Portland & San Francisco 2026</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100">
+                            <div class="flex items-center gap-3 mb-6"><i data-lucide="plane-takeoff" class="text-blue-600"></i><h3 class="text-xl font-black">航班起降資訊</h3></div>
+                            <div class="space-y-4">
+                                ${data.flights.map(f => `
+                                    <div class="flex justify-between items-center p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                                        <div>
+                                            <p class="text-[10px] font-black text-blue-600">${f.airline}</p>
+                                            <h4 class="font-black text-slate-800">${f.id}</h4>
+                                            <p class="text-[10px] text-slate-400 font-bold">${f.route}</p>
+                                        </div>
+                                        <div class="text-right text-xs font-black text-slate-600">${f.time}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100">
+                            <div class="flex items-center gap-3 mb-6"><i data-lucide="briefcase" class="text-orange-600"></i><h3 class="text-xl font-black">行李攜帶規定</h3></div>
+                            <div class="bg-orange-50 p-6 rounded-3xl border border-orange-100">
+                                <p class="text-orange-900 font-black leading-relaxed">${data.baggage}</p>
+                                <div class="mt-4 flex items-center gap-2 text-xs text-orange-600 font-bold">
+                                    <i data-lucide="alert-triangle" class="w-4 h-4"></i> 嚴格限重，建議預留空間放紀念品
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100">
+                            <div class="flex items-center gap-3 mb-6"><i data-lucide="cloud-sun" class="text-sky-500"></i><h3 class="text-xl font-black">預計城市氣溫</h3></div>
+                            <div class="grid grid-cols-3 gap-3">
+                                ${data.weather.map(w => `
+                                    <div class="bg-slate-50 p-4 rounded-2xl text-center">
+                                        <p class="text-[10px] font-black text-slate-400 mb-1">${w.city}</p>
+                                        <p class="text-lg font-black text-slate-800">${w.temp}</p>
+                                        <p class="text-[8px] text-slate-400 mt-1 leading-tight">${w.note}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100">
+                            <div class="flex items-center gap-3 mb-6"><i data-lucide="shield-alert" class="text-red-600"></i><h3 class="text-xl font-black">TSA 安檢重點</h3></div>
+                            <ul class="space-y-3">
+                                ${data.tsa.map(t => `<li class="flex gap-3 text-sm font-bold text-slate-600"><i data-lucide="check-circle" class="w-4 h-4 text-red-500 shrink-0"></i>${t}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderFamilyDay(el, data) {
+            el.innerHTML = `
+                <div class="animate-in slide-in-from-bottom-4 duration-500">
+                    <div class="family-gradient rounded-[3rem] p-10 border border-amber-100 shadow-xl overflow-hidden relative">
+                        <div class="absolute top-0 right-0 p-10 opacity-10"><i data-lucide="home" class="w-64 h-64"></i></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="bg-amber-500 text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest">Host Family Day</span>
+                                <span class="bg-white/80 text-amber-800 text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest">Day ${currentDay}</span>
+                            </div>
+                            <h2 class="text-5xl font-black text-amber-900 tracking-tighter mb-4">${data.title}</h2>
+                            <div class="flex gap-6 text-amber-700/70 text-sm font-bold">
+                                <span class="flex items-center gap-2"><i data-lucide="calendar"></i>${data.date}</span>
+                                <span class="flex items-center gap-2"><i data-lucide="map-pin"></i>${data.location}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8">
+                        <div class="lg:col-span-7 space-y-6">
+                            <div class="bg-white rounded-[2.5rem] p-10 shadow-sm border border-slate-100">
+                                <div class="flex items-center gap-3 mb-8">
+                                    <div class="w-1.5 h-8 bg-amber-500 rounded-full"></div>
+                                    <h3 class="text-2xl font-black italic text-slate-800">今日重點安排</h3>
+                                </div>
+                                <div class="space-y-8">
+                                    ${data.schedule.map(item => `
+                                        <div class="flex gap-6 items-start">
+                                            <div class="bg-amber-100 p-3 rounded-2xl text-amber-600"><i data-lucide="heart"></i></div>
+                                            <div>
+                                                <h4 class="text-xl font-black text-slate-800">${item.activity}</h4>
+                                                <p class="text-slate-500 font-bold mt-2 leading-relaxed">${item.detail}</p>
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-[2.5rem] p-10 shadow-sm border border-slate-100">
+                                <div class="flex items-center gap-3 mb-6"><i data-lucide="utensils" class="text-amber-500"></i><h3 class="text-xl font-black italic">飲食安排</h3></div>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center font-black">
+                                    <div class="bg-slate-50 p-4 rounded-2xl"><p class="text-[10px] text-slate-400">早</p>${data.meals.breakfast.type}</div>
+                                    <div class="bg-slate-50 p-4 rounded-2xl"><p class="text-[10px] text-slate-400">午</p>${data.meals.lunch.type}</div>
+                                    <div class="bg-slate-50 p-4 rounded-2xl"><p class="text-[10px] text-slate-400">晚</p>${data.meals.dinner.type}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5">
+                            <div class="bg-amber-900 text-amber-50 rounded-[2.5rem] p-10 shadow-xl sticky top-24">
+                                <h4 class="text-2xl font-black mb-6 flex items-center gap-3 italic"><i data-lucide="sparkles" class="text-amber-400"></i> 家庭交流小撇步</h4>
+                                <ul class="space-y-6">
+                                    <li class="flex gap-4">
+                                        <div class="w-6 h-6 rounded-full bg-amber-800 flex items-center justify-center shrink-0 font-black text-xs">1</div>
+                                        <p class="text-sm font-bold opacity-80 leading-relaxed">主動詢問：問候 "Good Morning" 或 "How can I help with dinner?" 是開啟談話的好方法。</p>
+                                    </li>
+                                    <li class="flex gap-4">
+                                        <div class="w-6 h-6 rounded-full bg-amber-800 flex items-center justify-center shrink-0 font-black text-xs">2</div>
+                                        <p class="text-sm font-bold opacity-80 leading-relaxed">分享文化：可以介紹台灣的美食照片或小禮物，外國家庭通常對這些很感興趣。</p>
+                                    </li>
+                                    <li class="flex gap-4">
+                                        <div class="w-6 h-6 rounded-full bg-amber-800 flex items-center justify-center shrink-0 font-black text-xs">3</div>
+                                        <p class="text-sm font-bold opacity-80 leading-relaxed">遵守規定：注意淋浴時間與門禁要求，保持個人空間整潔是基本禮儀。</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderDay(el, data) {
+            el.innerHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 animate-in slide-in-from-bottom-4 duration-500">
+                    <div class="lg:col-span-8 space-y-6">
+                        <div class="bg-white rounded-[2.5rem] shadow-2xl border border-slate-100 overflow-hidden">
+                            <div class="bg-slate-900 text-white p-10 relative overflow-hidden">
+                                <div class="absolute top-0 right-0 p-10 opacity-10"><i data-lucide="globe" class="w-48 h-48"></i></div>
+                                <div class="relative z-10">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <span class="bg-blue-600 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Day ${currentDay}</span>
+                                        ${data.isFormal ? '<span class="bg-red-500 text-[10px] font-black px-3 py-1 rounded-full uppercase animate-pulse">Formal Wear</span>' : ''}
+                                    </div>
+                                    <h2 class="text-4xl font-black tracking-tighter mb-4 italic">${data.title}</h2>
+                                    <div class="flex gap-6 text-slate-300 text-xs font-black uppercase tracking-widest">
+                                        <span class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4 text-blue-400"></i>${data.date}</span>
+                                        <span class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-blue-400"></i>${data.location}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="p-10">
+                                <div class="flex items-center gap-4 mb-10 p-6 bg-blue-50 rounded-3xl border border-blue-100">
+                                    <div class="bg-blue-600 p-3 rounded-2xl text-white shadow-lg shadow-blue-200"><i data-lucide="bell" class="w-5 h-5"></i></div>
+                                    <div>
+                                        <p class="text-[10px] font-black text-blue-400 uppercase tracking-[0.2em]">Morning Gathering</p>
+                                        <p class="text-xl font-black text-slate-800">${data.assemble}</p>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2 relative">
+                                    ${data.schedule.map(item => `
+                                        <div class="group flex gap-8">
+                                            <div class="w-16 shrink-0 text-sm font-black text-slate-300 pt-5 font-mono">${item.time}</div>
+                                            <div class="relative flex-grow pb-10 border-b border-slate-50 pt-5">
+                                                <div class="absolute -left-[41px] top-[26px] w-2.5 h-2.5 bg-slate-200 border-2 border-white rounded-full z-10 transition-colors group-hover:bg-blue-600"></div>
+                                                <div class="absolute -left-[37px] top-0 w-[2px] h-full bg-slate-50"></div>
+                                                <div class="flex justify-between items-start gap-4">
+                                                    <div>
+                                                        <h4 class="text-lg font-black text-slate-800 leading-tight">${item.activity}</h4>
+                                                        <p class="text-sm text-slate-400 font-bold mt-2">${item.detail}</p>
+                                                    </div>
+                                                    <span class="text-[10px] font-black text-slate-400 bg-slate-100 px-3 py-1 rounded-lg shrink-0">${item.duration}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+
+                                <div class="mt-16">
+                                    <h4 class="text-lg font-black text-slate-800 mb-6 italic">Dining & Logistics</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                        ${Object.entries(data.meals).map(([type, m]) => `
+                                            <div class="bg-slate-50 p-6 rounded-[2rem] border border-slate-100 hover:bg-slate-100 transition-colors cursor-pointer" onclick="openMap('${m.place}')">
+                                                <div class="flex justify-between items-center mb-4">
+                                                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">${type}</p>
+                                                    <i data-lucide="map" class="w-3 h-3 text-blue-400"></i>
+                                                </div>
+                                                <h5 class="font-black text-slate-800 leading-tight">${m.type}</h5>
+                                                <p class="text-[10px] text-blue-500 mt-2 font-black uppercase overflow-hidden text-ellipsis whitespace-nowrap">${m.place}</p>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-4 space-y-6">
+                        <div class="bg-white rounded-[2.5rem] p-8 shadow-xl border border-slate-100 sticky top-24 text-center">
+                            <div class="aspect-[4/5] bg-slate-900 rounded-[2rem] relative overflow-hidden flex flex-col items-center justify-center cursor-pointer mb-6 group" onclick="openMap('${data.mainSpot}')">
+                                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:20px_20px]"></div>
+                                <div class="bg-blue-600 text-[10px] font-black px-4 py-1.5 rounded-full text-white radar-pulse mb-6 shadow-lg shadow-blue-500/50">Location Tracker</div>
+                                <h4 class="text-2xl font-black text-white px-6 leading-tight group-hover:scale-105 transition-transform">${data.mainSpot}</h4>
+                                <p class="text-blue-400 text-[10px] mt-6 font-black flex items-center gap-2 uppercase tracking-widest"><i data-lucide="navigation" class="w-3 h-3"></i> Get Directions</p>
+                            </div>
+                            <div class="bg-amber-50 p-8 rounded-[2rem] border border-amber-100 text-left">
+                                <h5 class="text-amber-800 font-black text-sm flex items-center gap-2 mb-3 uppercase tracking-tighter"><i data-lucide="lightbulb" class="w-4 h-4"></i>Navigator's Tip</h5>
+                                <p class="text-sm text-amber-900/70 font-bold leading-relaxed">${data.tips}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function openMap(q) {
+            window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`, '_blank');
+        }
+
+        function changeDay(d) {
+            currentDay = d;
+            render();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.onload = render;
+    </script>
 </body>
 </html>
